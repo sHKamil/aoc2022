@@ -2,8 +2,6 @@ const fs = require('fs');
 const file = 'input.txt';
 const list_of_calories = fs.readFileSync(file,'utf-8').replace(/\r/g, "").split("\n") // Get data from the file, replace hidden characters and split string every new line
 
-
-
 function cleanUp(array){
     var answ = [];
     var temp = 0;
