@@ -1,4 +1,3 @@
-const { group } = require('console');
 const fs = require('fs');
 const file = 'input.txt';
 const rucksacks = fs.readFileSync(file,'utf-8').replace(/\r/g, "").split("\n"); // Get data from the file, replace hidden characters and split string every new line
@@ -73,9 +72,7 @@ function findRepeatingChar(array) {
         }
         temp = [];
         uniqueChars = [];
-
     }
-    
     return rucksackKey
 }
 
