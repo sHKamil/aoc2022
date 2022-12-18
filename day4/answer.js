@@ -23,7 +23,9 @@ function dividePair(array) { // Divide pair in to two range of numbers
 }
 
 function pointsCounting(array) {
-    let points = 0;
+    let points_p1 = 0;
+    let points_p2 = 0;
+    const points = [];
     let first_a = 0;
     let second_a = 0;
     let first_b = 0;
@@ -34,14 +36,25 @@ function pointsCounting(array) {
         first_a = parseInt(element[0][0]);
         second_a = parseInt(element[1][0]);
         second_b = parseInt(element[1][1]);
-        if(first_a<=second_a && first_b >= second_b){
-            points++;
+
+        if(first_a<=second_a && first_b >= second_b){ // Part 1
+            points_p1++;
         }else if(first_a>=second_a && first_b <= second_b){
-            points++;
+            points_p1++;
+        }
+
+        if(first_b >= second_a && first_a<=second_a) {
+            points_p2++;
+        }else if(first_a <= second_b && second_a<=first_b) {
+            points_p2++;
         }
     });
 
+    points.push(points_p1);
+    points.push(points_p2);
+    
     return points;
 }
 
-console.log("Part 1: "+pointsCounting(dividePair(pairList)));
+console.log("Part 1: "+pointsCounting(dividePair(pairList))[0]);
+console.log("Part 2: "+pointsCounting(dividePair(pairList))[1]);
